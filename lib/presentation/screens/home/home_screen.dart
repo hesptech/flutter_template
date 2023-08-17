@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '/presentation/providers/type_provider.dart';
+import '/presentation/widgets/type_property.dart';
 import '/presentation/widgets/side_menu.dart';
 import '../screens.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends ConsumerWidget {
 
   static const String name = 'home_screen';
 
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
 
     final scaffoldKey = GlobalKey<ScaffoldState>(); 
+    final String typePropertyState = ref.watch( typeProvider ); 
 
     return Scaffold(
       key: scaffoldKey,
@@ -22,35 +26,37 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Clean Architecture Template'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('HOME'),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const TypeProperty(),
+          const SizedBox( height: 50.0 ),
+          const Text('HOME'),
 
-            FilledButton(
-              onPressed: () {
-                context.push('/gallery');
-              },
-              child: const Text('GALLERY'),
-            ),
+          Text('state: $typePropertyState'),
 
-            FilledButton(
-              onPressed: () {
-                context.go('/auth');
-              },
-              child: const Text('go AUTHENTICATION'),
-            ),
+          FilledButton(
+            onPressed: () {
+              context.push('/gallery');
+            },
+            child: const Text('GALLERY'),
+          ),
 
-            FilledButton(
-              onPressed: () {
-                context.pushNamed(AuthScreen.name);
-              },
-              child: const Text('pushName AUTHENTICATION'),
-            ),
+          FilledButton(
+            onPressed: () {
+              context.go('/auth');
+            },
+            child: const Text('go AUTHENTICATION'),
+          ),
 
-          ],
-        )
+          FilledButton(
+            onPressed: () {
+              context.pushNamed(AuthScreen.name);
+            },
+            child: const Text('pushName AUTHENTICATION'),
+          ),
+
+        ],
       ),
       drawer: SideMenu(scaffoldKey: scaffoldKey,),
     );

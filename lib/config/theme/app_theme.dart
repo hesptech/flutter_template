@@ -1,35 +1,35 @@
 import 'package:flutter/material.dart';
 
-const colorList = <Color>[
-  Colors.blue,
-  Colors.teal,
-  Colors.green,
-  Colors.red,
-  Colors.purple,
-  Colors.deepPurple,
-  Colors.orange,
-  Colors.pink,
-  Colors.pinkAccent,
-];
-
-
+final Map<String,Color> colorName = <String, Color>{
+  'primary': Colors.blue,
+  'secondary': Colors.green,
+  'error': Colors.red,
+  'white': Colors.white,
+  'black': Colors.black,
+};
 
 class AppTheme {
 
-  final int selectedColor;
-  final bool isDarkmode;
+  AppTheme();
 
-  AppTheme({
-    this.selectedColor = 0,
-    this.isDarkmode = false,
-  }): assert( selectedColor >= 0, 'Selected color must be greater then 0' ),  
-      assert( selectedColor < colorList.length, 
-        'Selected color must be less or equal than ${ colorList.length - 1 }');
+  // Theme.of(context).colorScheme.primary
 
   ThemeData getTheme() => ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
-    colorSchemeSeed: colorList[ selectedColor ],
+    colorScheme: const ColorScheme(
+      brightness: Brightness.light,
+      primary: Colors.black,
+      onPrimary: Colors.white,
+      secondary: Colors.white,
+      onSecondary: Colors.black,
+      error: Colors.red,
+      onError: Colors.white,
+      background: Colors.white,
+      onBackground: Colors.black,
+      surface: Colors.white,
+      onSurface: Colors.black,
+    ),
     appBarTheme: const AppBarTheme(
       centerTitle: false
     ),
