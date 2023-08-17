@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/presentation/screens/screens.dart';
 import 'package:go_router/go_router.dart';
+
+import '/presentation/widgets/side_menu.dart';
+import '../screens.dart';
 
 class HomeScreen extends StatelessWidget {
 
@@ -10,7 +12,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final scaffoldKey = GlobalKey<ScaffoldState>(); 
+
     return Scaffold(
+      key: scaffoldKey,
       appBar: AppBar(
         backgroundColor: Colors.grey,
         title: const Text('Clean Architecture Template'),
@@ -46,6 +52,7 @@ class HomeScreen extends StatelessWidget {
           ],
         )
       ),
+      drawer: SideMenu(scaffoldKey: scaffoldKey,),
     );
   }
 }

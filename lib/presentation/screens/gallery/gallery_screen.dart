@@ -14,8 +14,13 @@ class GalleryScreen extends StatelessWidget {
         title: const Text('page gallery'),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text('page gallery'),
+      body: MediaQuery.removePadding(
+        context: context,
+        removeTop: true,
+        removeBottom: true,
+        child: const Center(
+          child: Text('page gallery'),
+        ),
       ),
     );
   }
