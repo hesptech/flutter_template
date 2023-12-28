@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../constants/constants.dart';
 
 final Map<String,Color> colorName = <String, Color>{
   'primary': Colors.blue,
@@ -31,7 +32,8 @@ class AppTheme {
       onSurface: Colors.black,
     ),
     appBarTheme: const AppBarTheme(
-      centerTitle: false
+      centerTitle: false,
+      color: Constants.kPrimaryColor,
     ),
   );
 }

@@ -10,8 +10,15 @@ class GalleryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey,
-        title: const Text('page gallery'),
+        title: const Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.collections),
+            SizedBox(width: 15.0,),
+            Text('page gallery'),
+            SizedBox(width: 52.0,),
+          ],
+        ),
         centerTitle: true,
       ),
       body: MediaQuery.removePadding(

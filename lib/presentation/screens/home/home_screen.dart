@@ -22,9 +22,8 @@ class HomeScreen extends ConsumerWidget {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        backgroundColor: Colors.grey,
+        elevation: 10,
         title: const Text('Clean Architecture Template'),
-        centerTitle: true,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,

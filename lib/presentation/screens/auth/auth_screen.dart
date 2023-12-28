@@ -11,7 +11,6 @@ class AuthScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey,
         centerTitle: true,
         title: const Text('AUTHENTICATION'),
       ),
