@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'config/config.dart';
+import 'package:flutter_template/api/client_api.dart';
+import 'package:flutter_template/services/local_storage.dart';
 
 
-void main() {
+void main() async {
+
+  await dotenv.load();
+  WidgetsFlutterBinding.ensureInitialized();
+  await LocalStorage.configurePrefs();
+  ClientApi.configureDio();
+
   runApp(
     const ProviderScope(
       child: MyApp(),

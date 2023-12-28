@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../../services/local_storage.dart';
 import '../../services/notifications_service.dart';
 
@@ -9,18 +10,26 @@ class ClientApi {
 
   static void configureDio() {
 
-    _dio.options.baseUrl = 'http://localhost:8080/api';
+    _dio.options.baseUrl = 'api.repliers.io';
 
     _dio.options.headers = {
-      'x-token': LocalStorage.prefs.getString('token') ?? ''
+      'x-token': LocalStorage.prefs.getString('token') ?? '',
+      'REPLIERS-API-KEY': dotenv.get('REPLIERS-API-KEY')
     };
 
   }
 
-  static Future httpGet( String path ) async {
+  static Future httpGet( String path, Map<String, dynamic> queryParameters ) async {
     try {
 
-      final resp = await _dio.get(path);
+      final resp = await _dio.get(path, queryParameters: {
+      'pageNum': '1',
+      'resultsPerPage': '15',
+      'maxPrice': '2000000',
+      'minPrice': '1500000',
+      'type': 'sale',
+      'hasImages': 'true',        
+      });
 
       return resp.data;
       
