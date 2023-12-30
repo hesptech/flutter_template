@@ -2,8 +2,8 @@ import 'dart:typed_data';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import '../../services/local_storage.dart';
-import '../../services/notifications_service.dart';
+import '/services/local_storage.dart';
+import '/services/notifications_service.dart';
 
 class ClientApi {
   static final Dio _dio = Dio();

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/config/theme/app_theme.dart';
-import 'package:flutter_template/presentation/providers/type_provider.dart';
+import '/config/theme/app_theme.dart';
+import '/presentation/providers/type_provider.dart';
 
 class TypeProperty extends StatelessWidget {
   const TypeProperty({super.key});

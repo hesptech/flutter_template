@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../api/client_api.dart';
-import '../../models/models.dart'; 
+import '/api/client_api.dart';
+import '/models/models.dart'; 
 
 
 final repliersListingsProvider = StateNotifierProvider< RepliersListingsNotifier, List<Listing>>((ref) {

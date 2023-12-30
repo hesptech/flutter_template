@@ -3,8 +3,8 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'config/config.dart';
-import 'package:flutter_template/api/client_api.dart';
-import 'package:flutter_template/services/local_storage.dart';
+import '/api/client_api.dart';
+import '/services/local_storage.dart';
 
 
 void main() async {

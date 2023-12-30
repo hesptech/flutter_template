@@ -3,10 +3,10 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '/presentation/providers/type_provider.dart';
+import '/presentation/providers/repliers_listings_provider.dart';
 import '/presentation/widgets/type_property.dart';
 import '/presentation/widgets/side_menu.dart';
-import '../screens.dart';
-import '/presentation/providers/repliers_listings_provider.dart';
+import '/presentation/screens/screens.dart';
 
 class HomeScreen extends ConsumerWidget {
 

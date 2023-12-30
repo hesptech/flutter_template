@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/presentation/providers/repliers_listings_provider.dart';
+import '/presentation/providers/repliers_listings_provider.dart';
 
 class ListingsScreen extends ConsumerWidget {
 
