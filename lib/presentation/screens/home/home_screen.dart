@@ -6,6 +6,7 @@ import '/presentation/providers/type_provider.dart';
 import '/presentation/widgets/type_property.dart';
 import '/presentation/widgets/side_menu.dart';
 import '../screens.dart';
+import '/presentation/providers/repliers_listings_provider.dart';
 
 class HomeScreen extends ConsumerWidget {
 
@@ -53,6 +54,14 @@ class HomeScreen extends ConsumerWidget {
               context.pushNamed(AuthScreen.name);
             },
             child: const Text('pushName AUTHENTICATION'),
+          ),
+
+          FilledButton(
+            onPressed: () {
+              ref.read(repliersListingsProvider.notifier).getDisplayHouses();
+              context.pushNamed(ListingsScreen.name);
+            },
+            child: const Text('Listings'),
           ),
 
         ],

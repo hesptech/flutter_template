@@ -22,5 +22,11 @@ final appRouter = GoRouter(
       name: AuthScreen.name,
       builder: (context, state) => const AuthScreen(),
     ),
+
+    GoRoute(
+      path: '/listings',
+      name: ListingsScreen.name,
+      builder: (context, state) => const ListingsScreen(),
+    ),
   ],
 );

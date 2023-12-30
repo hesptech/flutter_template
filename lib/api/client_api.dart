@@ -10,7 +10,7 @@ class ClientApi {
 
   static void configureDio() {
 
-    _dio.options.baseUrl = 'api.repliers.io';
+    _dio.options.baseUrl = 'https://api.repliers.io';
 
     _dio.options.headers = {
       'x-token': LocalStorage.prefs.getString('token') ?? '',
@@ -19,19 +19,16 @@ class ClientApi {
 
   }
 
-  static Future httpGet( String path, Map<String, dynamic> queryParameters ) async {
+  static Future httpGet( String path, Map<String, dynamic>? queryParameters ) async {
     try {
 
-      final resp = await _dio.get(path, queryParameters: {
-      'pageNum': '1',
-      'resultsPerPage': '15',
-      'maxPrice': '2000000',
-      'minPrice': '1500000',
-      'type': 'sale',
-      'hasImages': 'true',        
-      });
+      final resp = await _dio.get(path, queryParameters: queryParameters );
 
-      return resp.data;
+      //return resp.data;
+      if(resp.statusCode == 200){
+        return resp.data;
+      }
+      throw "something went wrong";
       
     } on DioException catch (e) {
       //print(e.response);
